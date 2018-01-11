@@ -7,7 +7,7 @@ module.exports = function(RED) {
         RED.nodes.createNode(this, n);
         var node = this;
 
-        node.port  = I2C.openSync( 1 );
+        node.port  = I2C.openSync( this.bus );
         node.on("input", function(msg) {
             node.port.scan(function(err, res) {
                 // result contains a buffer of bytes
@@ -44,7 +44,7 @@ module.exports = function(RED) {
         this.count = n.count;
         var node = this;
 
-        node.port = I2C.openSync( 1 );
+        node.port = I2C.openSync( this.bus );
         node.on("input", function(msg) {
             var address = node.address || msg.address ;
             var command = node.command || msg.command ;
@@ -104,7 +104,7 @@ module.exports = function(RED) {
         this.payloadType = n.payloadType;
         var node = this;
  
-        node.port = I2C.openSync( 1 );
+        node.port = I2C.openSync( this.bus );
         node.on("input", function(msg) {
       			var myPayload;
       			var address = node.address; 
