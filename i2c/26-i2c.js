@@ -93,7 +93,7 @@ module.exports = function(RED) {
     }
     RED.nodes.registerType("i2c in", I2CInNode);
 
-
+ 
     // The Output Node
     function I2COutNode(n) {
         RED.nodes.createNode(this, n);
