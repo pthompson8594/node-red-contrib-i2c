@@ -171,3 +171,23 @@
 	 }
     });
 </script>
+
+<script type="text/javascript">
+  RED.nodes.registerType('i2cbus', {
+    category: 'config',
+    defaults: {
+      bus: {value: 1, required:true} // defaulted to Raspberry PI i2c bus device
+      // http://stackoverflow.com/questions/6117886/javascript-and-forward-slashes-in-strings
+    },
+    label: function () {
+      return this.bus;
+    }
+  });
+</script>
+
+<script type="text/x-red" data-template-name="i2cbus">
+    <div class="form-row">
+        <label for="node-config-input-bus"><i class="fa fa-bus" aria-hidden="true"></i> I2C Device</label>
+        <input type="text" id="node-config-input-bus">
+    </div>
+</script>
